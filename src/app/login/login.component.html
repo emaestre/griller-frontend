@@ -1,0 +1,35 @@
+<div *ngIf="error" class="alert alert-danger">{{error}}</div>
+<div *ngIf="success" class="alert alert-success">{{success}}</div>
+<form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="text-center">
+        <img class="mb-4" src="../assets/images/canva-griller.png" width="100" height="100">
+    </div>
+    <h3 class="display-4 text-center">Welcome</h3>
+    <label for="username" class="sr-only">Username</label>
+    <input type="text"
+            formControlName="username" 
+            class="form-control" 
+            placeholder="Username"
+            required autofocus
+            [ngClass]="{ 'is-invalid': submitted && loginForm.controls.username.errors }" />
+    <div *ngIf="submitted && loginForm.controls.username.errors" class="invalid-feedback">
+        <div *ngIf="loginForm.controls.username.errors.required">Username is required</div>
+    </div>  
+
+    <label for="password" class="sr-only">Password</label>
+    <input type="password" 
+            formControlName="password" 
+            class="form-control" 
+            placeholder="Password"
+            required autofocus
+            [ngClass]="{ 'is-invalid': submitted && loginForm.controls.password.errors }" />
+    <div *ngIf="submitted && loginForm.controls.password.errors" class="invalid-feedback">
+        <div *ngIf="loginForm.controls.password.errors.required">Password is required</div>
+    </div>
+
+    <button [disabled]="loading" class="btn btn-lg btn-primary btn-block" type="submit">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        Sign in
+    </button>
+    <a routerLink="/register" class="btn btn-link text-center">You don't have account? Register</a>
+</form>

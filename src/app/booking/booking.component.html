@@ -1,0 +1,26 @@
+<div *ngIf="error" class="alert alert-danger">{{error}}</div>
+<div *ngIf="showMsgBooking" class="alert alert-success">{{showMsgBooking}}</div>
+<h2 class="display-4">Book your prefered grill here!</h2>
+<hr>
+<table id="dtBasicExample" class="table table-light table-hover table-bordered table-sm" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th class="th-sm">Name</th>
+      <th class="th-sm">Model</th>
+      <th class="th-sm">Price ($)</th>
+      <th class="th-sm">Location</th>
+      <th class="th-sm">Description</th>
+      <th class="th-sm">Reserve</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let griller of grills">
+        <td>{{griller.name}}</td>
+        <td>{{griller.model}}</td>
+        <td>{{griller.price}}</td>
+        <td>{{griller.location}}</td>
+        <td>{{griller.description}}</td>
+        <td> <input type="button" class="btn btn-outline-info" value="Select" (click)="openFormModal(griller)"/></td>
+      </tr>
+  </tbody>
+</table>

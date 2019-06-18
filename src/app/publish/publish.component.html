@@ -1,0 +1,76 @@
+<div *ngIf="error" class="alert alert-danger">{{error}}</div>
+<h2 class="display-4">Publish a Grill</h2>
+<hr>
+<form class="form-signin" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-row mb-4">
+        <div class="col">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text icon ion-md-person"></span>
+            </div>
+            <input placeholder="Griller Name" type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.name.errors }" />
+            <div *ngIf="submitted && registerForm.controls.name.errors" class="invalid-feedback">
+                <div *ngIf="registerForm.controls.name.errors.required">Name is required</div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text icon ion-md-home"></span>
+        </div>
+        <input placeholder="Location" type="text" formControlName="location" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.location.errors }" />
+        <div *ngIf="submitted && registerForm.controls.location.errors" class="invalid-feedback">
+            <div *ngIf="registerForm.controls.location.errors.required">Location is required</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+        <input placeholder="Zip Code" type="text" formControlName="zipCode" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.zipCode.errors }" disabled/>
+        <div *ngIf="submitted && registerForm.controls.zipCode.errors" class="invalid-feedback">
+            <div *ngIf="registerForm.controls.zipCode.errors.required">Zip Code is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text icon ion-md-pricetag"></span>
+        </div>
+        <input placeholder="Model" type="text" formControlName="model" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.model.errors }" />
+        <div *ngIf="submitted && registerForm.controls.model.errors" class="invalid-feedback">
+            <div *ngIf="registerForm.controls.model.errors.required">Model is required</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text icon ion-md-cash"></span>
+        </div>
+        <input placeholder="Price" type="number" formControlName="price" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.price.errors }" />
+        <div *ngIf="submitted && registerForm.controls.price.errors" class="invalid-feedback">
+            <div *ngIf="registerForm.controls.price.errors.required">Price is required</div>
+            <div *ngIf="registerForm.controls.price.errors.pattern">Only numbers up to 2 decimals.</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text icon ion-md-book"></span>
+        </div>
+        <input placeholder="Description" type="text" formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.description.errors }" />
+        <div *ngIf="submitted && registerForm.controls.description.errors" class="invalid-feedback">
+            <div *ngIf="registerForm.controls.description.errors.required">Description is required</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Create
+        </button>
+        <a routerLink="/home" class="btn btn-link">Cancel</a>
+    </div>
+</form>

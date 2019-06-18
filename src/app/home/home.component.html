@@ -1,0 +1,57 @@
+<div *ngIf="showMsgPostGriller" class="alert alert-danger">{{showMsgPostGriller}}</div>
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Rent your grills here!</h1>
+  <p class="lead">You will never find a better page to rent grills, here you can booking 
+  grills near to you for less money and more time. 
+  
+  You can publish grills too!</p>
+</div>
+
+<!-- this creates a google map on the page with the given lat/lng from -->
+  <!-- the component as the initial center of the map: -->
+<div class="py-4">
+  <agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="location.lat" [longitude]="location.lng" *ngFor="let location of locations">
+    </agm-marker>
+  </agm-map>
+</div>
+
+<div class="container">
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Best prices</h4>
+      </div>
+      <div class="card-body">
+        <h2 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h2>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>At the beginning</li>
+        <h2 class="card-title pricing-card-title">$20 <small class="text-muted">/ mo</small></h2>
+          <li>In discounts.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Fun</h4>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>You can see the nearest grills in our map.</li>
+          <li>Google Map Integration.</li>
+          <li>Publish and Book.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Easy</h4>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>Everyone can do it!</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

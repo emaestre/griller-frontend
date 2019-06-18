@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "griller-angular": {
+    "griller-frontend": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/griller-angular",
+            "outputPath": "dist/griller-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "griller-angular:build"
+            "browserTarget": "griller-frontend:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "griller-angular:build:production"
+              "browserTarget": "griller-frontend:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "griller-angular:build"
+            "browserTarget": "griller-frontend:build"
           }
         },
         "test": {
@@ -111,11 +111,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "griller-angular:serve"
+            "devServerTarget": "griller-frontend:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "griller-angular:serve:production"
+              "devServerTarget": "griller-frontend:serve:production"
             }
           }
         }

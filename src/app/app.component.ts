@@ -9,7 +9,7 @@ import { AuthenticationService } from './_services';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'griller-angular';
+  title = 'griller-frontend';
   currentUser: any;
 
     constructor(
